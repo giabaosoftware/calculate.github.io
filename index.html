@@ -13,31 +13,33 @@
         <form action="">
             <table>
                 <tr>
-                    <td colspan="4"><input type="text" value="0" disabled></td>
+                    <td colspan="4" class="result"><input type="text" value="" id="result" onfocus="myFunction()" disabled></td>
                 </tr>
+                
                 <tr>
-                    <td><input type="button" value="7"></td>
-                    <td><input type="button" value="8"></td>
-                    <td><input type="button" value="9"></td>
+                    <td><input type="button" value="7" id="num7" onclick="number7()"></td>
+                    <td><input type="button" value="8" id="num8" onclick="number8()"></td>
+                    <td><input type="button" value="9" id="num9" onclick="number9()"></td>
                     <td><input type="button" onclick="division()" value="/" class="function"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="4"></td>
-                    <td><input type="button" value="5"></td>
-                    <td><input type="button" value="6"></td>
-                    <td><input type="button" onclick="multiple()" value="&#10005;" class="function"></td>
+                    <td><input type="button" value="4" id="num4" onclick="number4()"></td>
+                    <td><input type="button" value="5" id="num5" onclick="number5()"></td>
+                    <td><input type="button" value="6" id="num6" onclick="number6()"></td>
+                    <td><input type="button" onclick="mult()" value="&#10005;" class="function"></td>
                     
                 </tr>
                 <tr>
-                    <td><input type="button" value="1"></td>
-                    <td><input type="button" value="2"></td>
-                    <td><input type="button" value="3"></td>
-                    <td><input type="button" onclick="Subtraction()" value="&#9866;" class="function"></td>
-                    
+                    <td><input type="button" value="1" id="num1" onclick="number1()"></td>
+                    <td><input type="button" value="2" id="num2" onclick="number2()"></td>
+                    <td><input type="button" value="3" id="num3" onclick="number3()"></td>
+                    <td><input type="button" onclick="subtraction()" value="&#9866;" class="function"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="button" value="0"></td>
-                    <td><input type="submit" value="&equals;" class="function"></td>
+                    
+                    <td colspan="2"><input type="button" value="0" onclick="number0()"></td>
+                   
+                    <td><input type="button" onclick="equal()" value="&equals;" class="function"></td>
                     <td><input type="button" onclick="plus()" value="&plus;" class="function"></td>
                 </tr>
             </table>

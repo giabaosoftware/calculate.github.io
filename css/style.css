@@ -38,7 +38,7 @@ input:active{
     border-left: 1px solid black;
 }
 
-td[colspan="4"] input{
+.result input{
     background-color: rgb(58, 58, 58);
     color: #fff;
     border-radius: 30px;
