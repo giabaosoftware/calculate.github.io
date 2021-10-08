@@ -6,61 +6,64 @@ let total = 0;
 function number0(){
     num += "0";
     document.getElementById("result").value = parseFloat(num);
+    return num;
 }
 
 function number1() {
     num += document.getElementById("num1").value;
     document.getElementById("result").value = parseFloat(num);
+    return num;
 }
 
 function number2() {
     num += document.getElementById("num2").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number3() {
     num += document.getElementById("num3").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number4() {
     num += document.getElementById("num4").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number5() {
     num += document.getElementById("num5").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number6() {
     num += document.getElementById("num6").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number7() {
     num += document.getElementById("num7").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number8() {
     num += document.getElementById("num8").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
 function number9() {
     num += document.getElementById("num9").value;
     document.getElementById("result").value = parseFloat(num);
-    
+    return num;
 }
 
+let count;
 //Plus done
 function plus(){
     //check push to arr
@@ -83,6 +86,8 @@ function plus(){
 
     //display
     document.getElementById("result").value = total;
+    count = 1;
+    return total;
 }
 
 //Subtract done
@@ -107,6 +112,8 @@ function subtraction(){
 
     //display
     document.getElementById("result").value = total;
+    count = 2;
+    return total;
 }
 
 // done
@@ -130,6 +137,8 @@ function mult(){
     //reset number input
     num = 0;
     console.log(typeof num);
+    count = 3;
+    return total;
 }
 
 //Error
@@ -138,15 +147,14 @@ function division(){
     if (typeof num !== "number"){
         numArr.push(parseFloat(num));
     }
-
     console.log(num);
     console.log(numArr);
 
     //function multiple
-    total = numArr.reduce((num1 = 1, num2 = 1) => {
+    total = numArr.reduce((num1, num2 = 1) => {
         return num1 / num2;
     });
-
+    
     //clear Arr
     numArr = [total];
 
@@ -156,15 +164,18 @@ function division(){
     //reset number input
     num = 0;
     console.log(typeof num);
+    count = 4;
+    return total;
 }
 
 function equal(){
-    document.getElementById("result").value = total;
-}
-
-function resetfunc(){
-    num = 0;
-    numArr.length = 0;
-    total = 0;
-    document.getElementById("result").value = total;
+    if(count === 1){
+        document.getElementById("result").value = plus();
+    } else if (count === 2){
+        document.getElementById("result").value = subtraction();
+    }else if (count === 3){
+        document.getElementById("result").value = mult();
+    }else if (count === 4){
+        document.getElementById("result").value = division();
+    }
 }
