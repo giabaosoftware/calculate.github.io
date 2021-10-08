@@ -1,5 +1,5 @@
 //jshint esversion: 6
-let numArr = new Array;
+let numArr = [];
 let num = "";
 let total = 0;
 
@@ -112,7 +112,7 @@ function subtraction(){
 
 }
 
-// Error
+// done
 function mult(){
     //input number
     if (typeof num !== "number"){
@@ -140,13 +140,15 @@ function division(){
     //input number
     if (typeof num !== "number"){
         numArr.push(parseFloat(num));
-    } 
+    }
+    console.log(num);
+    console.log(numArr);
 
     //function multiple
-    total = numArr.reduce((num1, num2) => {
+    total = numArr.reduce((num1, num2 = 1) => {
         return num1 / num2;
-    }, 1);
-
+    });
+    
     //clear Arr
     numArr = [total];
 
