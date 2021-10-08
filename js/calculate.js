@@ -85,7 +85,7 @@ function plus(){
     console.log(numArr);
 
     //display
-    document.getElementById("result").value = total;
+    document.getElementById("result").value = total + " +";
     count = 1;
     return total;
 }
@@ -111,7 +111,7 @@ function subtraction(){
     numArr = [total];
 
     //display
-    document.getElementById("result").value = total;
+    document.getElementById("result").value = total + " -";
     count = 2;
     return total;
 }
@@ -132,7 +132,7 @@ function mult(){
     numArr = [total];
 
     //output result
-    document.getElementById("result").value = total;
+    document.getElementById("result").value = total + " x";
 
     //reset number input
     num = 0;
@@ -159,13 +159,20 @@ function division(){
     numArr = [total];
 
     //output result
-    document.getElementById("result").value = total;
+    document.getElementById("result").value = total + " /";
 
     //reset number input
     num = 0;
     console.log(typeof num);
     count = 4;
     return total;
+}
+
+function resetFunc(){
+    total = 0;
+    numArr.length = 0;
+    num = 0;
+    document.getElementById("result").value = total;
 }
 
 function equal(){
