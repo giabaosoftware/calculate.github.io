@@ -4,25 +4,23 @@ let num = "";
 let numArr = [];
 let result;
 let elResult = document.getElementById("result");
-let functionIndex;
+let getFunction;
 let setDefault = 0;
 
+
+//Main function
 function getNumber(val){
     num += val; //get number
     display(parseFloat(num), elResult); //display number
+    return num;
 }
 
 function calculateFunction(val){
-    pushNumberToArray(num, numArr);
+    pushNumberToArray(getNumber(), numArr);
 
-    functionIndex = val;
-
-    let plusIndex = 1;
-    let subtractIndex = 2;
-    let multipleIndex = 3;
-    let divisionIndex = 4;
-
-    switch(functionIndex){
+    let [plusIndex, subtractIndex, multipleIndex, divisionIndex] = [1,2,3,4];
+    getFunction = val;
+    switch(getFunction){
         case plusIndex: 
             result = plus(numArr);
             display(" +", elResult);
@@ -40,13 +38,14 @@ function calculateFunction(val){
             display(" /", elResult);
             break;
     }
+
     cleanArray(result, numArr);
     num = setDefault;
     return result;
 }
 
 function equal(){
-    display(calculateFunction(functionIndex), elResult);
+    display(calculateFunction(getFunction), elResult);
 }
 
 function resetAll(){
@@ -56,6 +55,7 @@ function resetAll(){
     display(result, elResult);
 }
 
+//Reuse Function
 function pushNumberToArray(val, array) {
     if (typeof val !== "number"){
         array.push(parseFloat(val));
