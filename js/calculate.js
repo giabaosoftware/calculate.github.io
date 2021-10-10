@@ -1,72 +1,104 @@
 //jshint esversion: 6
+
 let num = "";
 let numArr = [];
-let result = 0;
-let index;
+let result;
 let elResult = document.getElementById("result");
+let functionIndex;
+let setDefault = 0;
 
-function number(val){
-    //get number
-    num += val;
-    //display number
-    elResult.value = parseFloat(num);
-    return num;
+function getNumber(val){
+    num += val; //get number
+    display(parseFloat(num), elResult); //display number
 }
 
-function calculate(i){
-    //function index - plus: 1, subtract: 2, multiple: 3, division: 4
-    index = i; 
-    //check number input
-    if (typeof num !== "number"){
-        numArr.push(parseFloat(num));
+
+function calculate(val){
+    pushNumberToArray(num, numArr);
+
+    functionIndex = val;
+
+    let plusIndex = 1;
+    let subtractIndex = 2;
+    let multipleIndex = 3;
+    let divisionIndex = 4;
+    
+    switch(functionIndex){
+        case plusIndex: 
+            result = plus(numArr);
+            display(" +", elResult);
+            break;
+        case subtractIndex:
+            result = subtract(numArr);
+            display(" -", elResult);
+            break;
+        case multipleIndex:
+            result = multiple(numArr);
+            display(" x", elResult);
+            break;
+        case divisionIndex:
+            result = division(numArr);
+            display(" /", elResult);
+            break;
     }
-    //check index to calculate function
-    if (i === 1){
-        //plus function
-        result = numArr.reduce((num1, num2) => {
-            return num1 + num2;
-        }, 0);
-         //display icon
-        elResult.value = " +";
-    } else if(i === 2){
-        //subtract function
-        result = numArr.reduce((num1, num2) => {
-            return num1 - num2;
-        });
-        //display icon
-        elResult.value = " -";
-    } else if(i === 3){
-        //multiple function
-        result = numArr.reduce((num1, num2) => {
-            return num1 * num2;
-        }, 1);
-         //display icon
-        elResult.value = " x";
-    } else if(i === 4){
-        //division function
-        result = numArr.reduce((num1, num2 = 1) => {
-            return num1 / num2;
-        });
-         //display icon
-        elResult.value = " /";
-    }
-    //clear array
-    numArr = [result];
-    //reset number
-    num = 0;
-    //return result
+    cleanArray(result, numArr);
+    num = setDefault;
     return result;
 }
 
 function equal(){
-    //display result
-    elResult.value = calculate(index);
+    display(calculate(functionIndex), elResult);
 }
 
-function resetFunc(){
-    //clear all
-    result = 0;
-    numArr.length = 0;
-    num = 0;
-    elResult.value = result;
+function resetAll(){
+    num = setDefault;
+    numArr.length = setDefault;
+    result = setDefault;
+    display(result, elResult);
+}
+
+function pushNumberToArray(val, array) {
+    if (typeof val !== "number"){
+        array.push(parseFloat(val));
+    }
+}
+
+function cleanArray(val, array){
+    array = [val];
+}
+
+function display(val, element){
+    element.value = val;
+}
+
+function division(array){
+    let total;
+    total = array.reduce((num1, num2 = 1) => {
+        return num1 / num2;
+    });
+    return total;
+}
+
+function multiple(array){
+    let total;
+    total = array.reduce((num1, num2) => {
+        return num1 * num2;
+    }, 1);
+    return total;
+}
+
+function subtract(array){
+    let total;
+    total = array.reduce((num1, num2) => {
+        return num1 - num2;
+    });
+    return total;
+}
+
+function plus(array){
+    let total;
+    total = array.reduce((num1, num2) => {
+        return num1 + num2;
+    }, 0);
+    return total;
 }
