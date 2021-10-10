@@ -7,7 +7,6 @@ let elResult = document.getElementById("result");
 let getFunction;
 let setDefault = 0;
 
-
 //Main function
 function getNumber(val){
     num += val; //get number
@@ -18,7 +17,7 @@ function getNumber(val){
 function calculateFunction(val){
     pushNumberToArray(getNumber(), numArr);
 
-    let [plusIndex, subtractIndex, multipleIndex, divisionIndex] = [1,2,3,4];
+    let [plusIndex, subtractIndex, multipleIndex, divisionIndex] = [1, 2, 3, 4];
     getFunction = val;
     switch(getFunction){
         case plusIndex: 
@@ -71,33 +70,25 @@ function display(val, element){
 }
 
 function division(array){
-    let total;
-    total = array.reduce((num1, num2 = 1) => {
+    return array.reduce((num1, num2 = 1) => {
         return num1 / num2;
     });
-    return total;
 }
 
 function multiple(array){
-    let total;
-    total = array.reduce((num1, num2) => {
+    return array.reduce((num1, num2) => {
         return num1 * num2;
     }, 1);
-    return total;
 }
 
 function subtract(array){
-    let total;
-    total = array.reduce((num1, num2) => {
+    return array.reduce((num1, num2) => {
         return num1 - num2;
     });
-    return total;
 }
 
 function plus(array){
-    let total;
-    total = array.reduce((num1, num2) => {
+    return array.reduce((num1, num2) => {
         return num1 + num2;
     }, 0);
-    return total;
 }
