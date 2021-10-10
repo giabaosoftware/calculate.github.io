@@ -12,8 +12,7 @@ function getNumber(val){
     display(parseFloat(num), elResult); //display number
 }
 
-
-function calculate(val){
+function calculateFunction(val){
     pushNumberToArray(num, numArr);
 
     functionIndex = val;
@@ -22,7 +21,7 @@ function calculate(val){
     let subtractIndex = 2;
     let multipleIndex = 3;
     let divisionIndex = 4;
-    
+
     switch(functionIndex){
         case plusIndex: 
             result = plus(numArr);
@@ -47,7 +46,7 @@ function calculate(val){
 }
 
 function equal(){
-    display(calculate(functionIndex), elResult);
+    display(calculateFunction(functionIndex), elResult);
 }
 
 function resetAll(){
