@@ -1,4 +1,4 @@
-/*
+//jshint esversion: 6
 let num = "";
 let numArr = [];
 let result = 0;
@@ -69,4 +69,4 @@ function resetFunc(){
     numArr.length = 0;
     num = 0;
     elResult.value = result;
-} */
+}
