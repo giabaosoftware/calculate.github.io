@@ -14,47 +14,33 @@ function number(val){
 }
 
 function calculate(i){
-    //function index - plus: 1, subtract: 2, multiple: 3, division: 4
     index = i;
-    //check number input
     if (typeof num !== "number"){
         numArr.push(parseFloat(num));
     }
-    //check index to calculate function
     if (i === 1){
-        //plus function
         result = numArr.reduce((num1, num2) => {
             return num1 + num2;
         }, 0);
-         //display icon
         elResult.value = " +";
     } else if(i === 2){
-        //subtract function
         result = numArr.reduce((num1, num2) => {
             return num1 - num2;
         });
-        //display icon
         elResult.value = " -";
     } else if(i === 3){
-        //multiple function
         result = numArr.reduce((num1, num2) => {
             return num1 * num2;
         }, 1);
-         //display icon
         elResult.value = " x";
     } else if(i === 4){
-        //division function
         result = numArr.reduce((num1, num2 = 1) => {
             return num1 / num2;
         });
-         //display icon
         elResult.value = " /";
     }
-    //clear array
     numArr = [result];
-    //reset number
     num = 0;
-    //return result
     return result;
 }
 
