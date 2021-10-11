@@ -1,25 +1,24 @@
 //jshint esversion: 6
-
 let num = "";
 let numArr = [];
 let result;
 let elResult = document.getElementById("result");
-let getFunction;
+let functionIndex;
 let setDefault = 0;
 
-//Main function
+/* Main Function */
 function getNumber(val){
-    num += val; //get number
-    display(parseFloat(num), elResult); //display number
+    num += val;
+    display(parseFloat(num), elResult);
     return num;
-}
+} //Input number
 
-function calculateFunction(val){
+function calculate(val){
     pushNumberToArray(getNumber(), numArr);
 
     let [plusIndex, subtractIndex, multipleIndex, divisionIndex] = [1, 2, 3, 4];
-    getFunction = val;
-    switch(getFunction){
+    functionIndex = val;
+    switch(functionIndex){
         case plusIndex: 
             result = plus(numArr);
             display(" +", elResult);
@@ -41,20 +40,21 @@ function calculateFunction(val){
     cleanArray(result, numArr);
     num = setDefault;
     return result;
-}
+} //calculate number input
 
 function equal(){
-    display(calculateFunction(getFunction), elResult);
-}
+    display(calculate(functionIndex), elResult);
+} //display output
 
 function resetAll(){
     num = setDefault;
     numArr.length = setDefault;
     result = setDefault;
     display(result, elResult);
-}
+} //reset input
 
-//Reuse Function
+
+/* Reuse Function */
 function pushNumberToArray(val, array) {
     if (typeof val !== "number"){
         array.push(parseFloat(val));
