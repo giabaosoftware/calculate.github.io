@@ -37,7 +37,7 @@ function calculate(val){
             break;
     }
 
-    cleanArray(result, numArr);
+    getFirstIndex(result, numArr);
     num = setDefault;
     return result;
 } //calculate number input
@@ -61,7 +61,7 @@ function pushNumberToArray(val, array) {
     }
 }
 
-function cleanArray(val, array){
+function getFirstIndex(val, array){
     array = [val];
 }
 
